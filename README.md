@@ -54,7 +54,12 @@ Use instructions
 ``` php
 <?php
 
+// get iban from country code, bank identification and account number
 $iban = $this->getContainer('shapecode_iban.generator')->generateIban('DE', '50010517', '0648489890');
+
+// get bic from iban
 $bic = $this->getContainer('shapecode_iban.generator')->generateBic($iban);
+
+// validate iban
 $isIban = $this->getContainer('shapecode_iban.generator')->validateIban($iban);
 ```
