@@ -16,7 +16,7 @@ First you need to add `shapecode/iban-bundle` to `composer.json`:
 ``` json
 {
    "require": {
-        "shapecode/iban-bundle": "^1.0"
+        "shapecode/iban-bundle": "~1.0"
     }
 }
 ```

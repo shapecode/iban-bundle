@@ -11,12 +11,12 @@
     ],
     "type": "symfony-bundle",
     "license": "MIT",
-    "homepage": "http://shapecode.de",
+    "homepage": "https://github.com/shapecode/iban-bundle",
     "support": {
         "email": "support@nikita-loges.de",
-        "issues": "https://bitbucket.org/shapecode/symfony-iban-bundle/issues",
-        "source": "https://bitbucket.org/shapecode/symfony-iban-bundle/downloads",
-        "wiki": "https://bitbucket.org/shapecode/symfony-iban-bundle/wiki/Home"
+        "issues": "https://github.com/shapecode/iban-bundle/issues",
+        "source": "https://github.com/shapecode/iban-bundle/release",
+        "wiki": "https://github.com/shapecode/iban-bundle/wiki"
     },
     "authors": [
         {
@@ -26,15 +26,31 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
+        "php": "~5.5|~7.0",
         "ext-soap": "*",
         "symfony/dependency-injection": "~2.3|~3.0",
         "symfony/http-kernel": "~2.3|~3.0",
         "symfony/config": "~2.3|~3.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
     "autoload": {
         "psr-4": {
-            "Shapecode\\Bundle\\IbanBundle\\": ""
+            "Shapecode\\Bundle\\IbanBundle\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shapecode\\Bundle\\IbanBundle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-release/1.0": "1.0-dev",
+            "dev-release/1.1": "1.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
