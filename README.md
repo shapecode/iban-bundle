@@ -2,7 +2,7 @@ Symfony - Iban Bundle
 =======================
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/673c6209-efe7-486e-8c20-8461c26c2564/mini.png)](https://insight.sensiolabs.com/projects/673c6209-efe7-486e-8c20-8461c26c2564)
-[![Dependency Status](https://www.versioneye.com/user/projects/5770359a61a87e00101a3fc3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5770359a61a87e00101a3fc3)
+[![Dependency Status](https://www.versioneye.com/user/projects/57703c9a6718940036449020/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57703c9a6718940036449020)
 [![Latest Stable Version](https://poser.pugx.org/shapecode/iban-bundle/v/stable)](https://packagist.org/packages/shapecode/iban-bundle) 
 [![Total Downloads](https://poser.pugx.org/shapecode/iban-bundle/downloads)](https://packagist.org/packages/shapecode/iban-bundle) 
 [![License](https://poser.pugx.org/shapecode/iban-bundle/license)](https://packagist.org/packages/shapecode/iban-bundle)
