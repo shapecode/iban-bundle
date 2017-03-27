@@ -102,9 +102,9 @@ class IbanApiDeApi implements IbanApiInterface
      */
     protected function parseResult(\stdClass $result, $function)
     {
-//        if ($result->$function == self::ERROR) {
-//            throw new IbanApiException(sprintf('Error calling %s, %s', $function, $this->client->__getLastRequest()));
-//        }
+        if ($result->$function == self::ERROR) {
+            return false;
+        }
 
         return $result->$function;
     }
