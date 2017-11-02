@@ -6,9 +6,9 @@ use Shapecode\Bundle\IBANBundle\Exception\IbanApiException;
 
 /**
  * Class IbanApiInterface
+ *
  * @package Shapecode\Bundle\IbanBundle\Iban
- * @author Nikita Loges
- * @company tenolo GbR
+ * @author  Nikita Loges
  */
 interface IbanApiInterface
 {
