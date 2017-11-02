@@ -1,11 +1,7 @@
-parameters:
-    shapecode_iban.api.class: Shapecode\Bundle\IbanBundle\Iban\IbanApiDeApi
-    shapecode_iban.generator.class: Shapecode\Bundle\IbanBundle\Iban\IbanGenerator
-
 services:
-    shapecode_iban.api:
-        class: %shapecode_iban.api.class%
+    shapecode_iban.api.iban_api_de:
+        class: Shapecode\Bundle\IbanBundle\Iban\IbanApiDeApi
 
     shapecode_iban.generator:
-        class: %shapecode_iban.generator.class%
-        arguments: ["@shapecode_iban.api"]
+        class: Shapecode\Bundle\IbanBundle\Iban\IbanGenerator
+        arguments: ["@shapecode_iban.api.iban_api_de"]

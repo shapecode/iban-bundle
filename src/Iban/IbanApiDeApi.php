@@ -6,9 +6,9 @@ use Shapecode\Bundle\IbanBundle\Exception\IbanApiException;
 
 /**
  * Class IbanApiDeApi
+ *
  * @package Shapecode\Bundle\IbanBundle\Iban
- * @author Nikita Loges
- * @company tenolo GbR
+ * @author  Nikita Loges
  */
 class IbanApiDeApi implements IbanApiInterface
 {
@@ -40,8 +40,8 @@ class IbanApiDeApi implements IbanApiInterface
 
         $soapCall = $this->client->__soapCall($function, [
             [
-                'contryCode' => $countryCode,
-                'bankIdent' => $bankIdentification,
+                'contryCode'    => $countryCode,
+                'bankIdent'     => $bankIdentification,
                 'accountNumber' => $accountNr
             ]
         ]);
