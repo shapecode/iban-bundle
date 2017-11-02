@@ -20,14 +20,6 @@ class IbanApiDeApi implements IbanApiInterface
     protected $client;
 
     /**
-     *
-     */
-    public function __construct()
-    {
-        $this->client = new \SoapClient(self::WSDL, ['trace' => true]);
-    }
-
-    /**
      * @inheritdoc
      */
     public function generateIban($countryCode, $bankIdentification, $accountNr)
@@ -38,7 +30,7 @@ class IbanApiDeApi implements IbanApiInterface
 
         $function = 'generateIban';
 
-        $soapCall = $this->client->__soapCall($function, [
+        $soapCall = $this->getClient()->__soapCall($function, [
             [
                 'contryCode'    => $countryCode,
                 'bankIdent'     => $bankIdentification,
@@ -66,7 +58,7 @@ class IbanApiDeApi implements IbanApiInterface
 
         $function = 'getBicFromIban';
 
-        $soapCall = $this->client->__soapCall($function, [
+        $soapCall = $this->getClient()->__soapCall($function, [
             [
                 'iban' => $iban
             ]
@@ -82,7 +74,7 @@ class IbanApiDeApi implements IbanApiInterface
     {
         $function = 'validateIban';
 
-        $soapCall = $this->client->__soapCall($function, [
+        $soapCall = $this->getClient()->__soapCall($function, [
             [
                 'iban' => $iban
             ]
@@ -107,5 +99,17 @@ class IbanApiDeApi implements IbanApiInterface
         }
 
         return $result->$function;
+    }
+
+    /**
+     * @return \SoapClient
+     */
+    public function getClient()
+    {
+        if (is_null($this->client)) {
+            $this->client = new \SoapClient(self::WSDL, ['trace' => true]);
+        }
+
+        return $this->client;
     }
 }
