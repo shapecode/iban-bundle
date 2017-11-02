@@ -4,8 +4,9 @@ namespace Shapecode\Bundle\IbanBundle\Iban;
 
 /**
  * Class IbanGenerator
+ *
  * @package Shapecode\Bundle\IbanBundle\Iban
- * @author Nikita Loges
+ * @author  Nikita Loges
  * @company tenolo GbR
  */
 class IbanGenerator implements IbanGeneratorInterface

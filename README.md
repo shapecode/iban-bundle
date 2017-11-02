@@ -1,11 +1,10 @@
 Symfony - Iban Bundle
 =======================
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/9282ff43-72cd-470d-a3c8-917cb07117a9/mini.png)](https://insight.sensiolabs.com/projects/9282ff43-72cd-470d-a3c8-917cb07117a9)
-[![Dependency Status](https://www.versioneye.com/user/projects/56c22e0b18b2710036c8d3f7/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56c22e0b18b2710036c8d3f7)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/673c6209-efe7-486e-8c20-8461c26c2564/mini.png)](https://insight.sensiolabs.com/projects/673c6209-efe7-486e-8c20-8461c26c2564)
+[![Dependency Status](https://www.versioneye.com/user/projects/57703c9a6718940036449020/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57703c9a6718940036449020)
 [![Latest Stable Version](https://poser.pugx.org/shapecode/iban-bundle/v/stable)](https://packagist.org/packages/shapecode/iban-bundle) 
 [![Total Downloads](https://poser.pugx.org/shapecode/iban-bundle/downloads)](https://packagist.org/packages/shapecode/iban-bundle) 
-[![Latest Unstable Version](https://poser.pugx.org/shapecode/iban-bundle/v/unstable)](https://packagist.org/packages/shapecode/iban-bundle) 
 [![License](https://poser.pugx.org/shapecode/iban-bundle/license)](https://packagist.org/packages/shapecode/iban-bundle)
 
 Install instructions
