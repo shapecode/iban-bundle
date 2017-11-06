@@ -1,16 +1,14 @@
 <?php
 
-namespace Shapecode\Bundle\IbanBundle\Iban;
-
-use Shapecode\Bundle\IbanBundle\Exception\IbanApiException;
+namespace Shapecode\Bundle\IbanBundle\Provider;
 
 /**
- * Class IbanApiDeApi
+ * Class IbanApiDeProvider
  *
- * @package Shapecode\Bundle\IbanBundle\Iban
+ * @package Shapecode\Bundle\IbanBundle\Provider
  * @author  Nikita Loges
  */
-class IbanApiDeApi implements IbanApiInterface
+class IbanApiDeProvider implements ProviderInterface
 {
 
     const WSDL = 'http://www.iban-api.de:8081/IbanService?wsdl';
@@ -24,10 +22,6 @@ class IbanApiDeApi implements IbanApiInterface
      */
     public function generateIban($countryCode, $bankIdentification, $accountNr)
     {
-        if (!($countryCode && $bankIdentification && $accountNr)) {
-            throw new IbanApiException("Missing data");
-        }
-
         $function = 'generateIban';
 
         $soapCall = $this->getClient()->__soapCall($function, [
@@ -52,10 +46,6 @@ class IbanApiDeApi implements IbanApiInterface
      */
     public function getBicFromIban($iban)
     {
-        if (!$iban) {
-            throw new IbanApiException("Missing data");
-        }
-
         $function = 'getBicFromIban';
 
         $soapCall = $this->getClient()->__soapCall($function, [
@@ -90,7 +80,6 @@ class IbanApiDeApi implements IbanApiInterface
      * @param           $function
      *
      * @return mixed
-     * @throws IbanApiException
      */
     protected function parseResult(\stdClass $result, $function)
     {
@@ -111,5 +100,13 @@ class IbanApiDeApi implements IbanApiInterface
         }
 
         return $this->client;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getName()
+    {
+        return 'iban_api_de';
     }
 }

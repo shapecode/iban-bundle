@@ -1,16 +1,15 @@
 <?php
 
-namespace Shapecode\Bundle\IbanBundle\Iban;
-
-use Shapecode\Bundle\IBANBundle\Exception\IbanApiException;
+namespace Shapecode\Bundle\IbanBundle\Provider;
 
 /**
- * Class IbanApiInterface
+ * Interface ProviderInterface
  *
- * @package Shapecode\Bundle\IbanBundle\Iban
+ * @package Shapecode\Bundle\IbanBundle\Provider
  * @author  Nikita Loges
+ * @company tenolo GbR
  */
-interface IbanApiInterface
+interface ProviderInterface
 {
 
     /**
@@ -20,7 +19,6 @@ interface IbanApiInterface
      * @param $bankIdentification
      * @param $accountNr
      *
-     * @throws IbanApiException
      * @return string
      */
     public function generateIban($countryCode, $bankIdentification, $accountNr);
@@ -30,7 +28,6 @@ interface IbanApiInterface
      *
      * @param $iban
      *
-     * @throws IbanApiException
      * @return string
      */
     public function getBicFromIban($iban);
@@ -43,4 +40,9 @@ interface IbanApiInterface
      * @return boolean
      */
     public function validateIban($iban);
+
+    /**
+     * @return string
+     */
+    public function getName();
 }

@@ -12,15 +12,20 @@ namespace Shapecode\Bundle\IbanBundle\Iban;
 class IbanGenerator implements IbanGeneratorInterface
 {
 
-    /** @var IbanApiInterface */
-    protected $api;
+    /** @var IbanHandler */
+    protected $handler;
+
+    /** @var string */
+    protected $providerName;
 
     /**
-     * @param IbanApiInterface $api
+     * @param IbanHandler $handler
+     * @param             $providerName
      */
-    public function __construct(IbanApiInterface $api)
+    public function __construct(IbanHandler $handler, $providerName)
     {
-        $this->api = $api;
+        $this->handler = $handler;
+        $this->providerName = $providerName;
     }
 
     /**
@@ -28,7 +33,7 @@ class IbanGenerator implements IbanGeneratorInterface
      */
     public function generateIban($countryCode, $bankIdentification, $accountNr)
     {
-        return $this->api->generateIban($countryCode, $bankIdentification, $accountNr);
+        return $this->getProvider()->generateIban($countryCode, $bankIdentification, $accountNr);
     }
 
     /**
@@ -36,7 +41,7 @@ class IbanGenerator implements IbanGeneratorInterface
      */
     public function validateIban($iban)
     {
-        return $this->api->validateIban($iban);
+        return $this->getProvider()->validateIban($iban);
     }
 
     /**
@@ -44,6 +49,22 @@ class IbanGenerator implements IbanGeneratorInterface
      */
     public function generateBic($iban)
     {
-        return $this->api->getBicFromIban($iban);
+        return $this->getProvider()->getBicFromIban($iban);
+    }
+
+    /**
+     * @return null|\Shapecode\Bundle\IbanBundle\Provider\ProviderInterface
+     */
+    public function getProvider()
+    {
+        return $this->handler->getProvider($this->providerName);
+    }
+
+    /**
+     * @param string $providerName
+     */
+    public function setProviderName($providerName)
+    {
+        $this->providerName = $providerName;
     }
 }
