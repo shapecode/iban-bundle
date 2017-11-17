@@ -2,7 +2,7 @@
 
 namespace Shapecode\Bundle\IbanBundle\Command;
 
-use Shapecode\Bundle\IbanBundle\Iban\IbanGeneratorInterface;
+use Shapecode\Bundle\IbanBundle\Iban\IbanApiInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,13 +19,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class GenerateIbanCommand extends Command
 {
 
-    /** @var IbanGeneratorInterface */
+    /** @var IbanApiInterface */
     protected $iban;
 
     /**
-     * @param IbanGeneratorInterface $iban
+     * @param IbanApiInterface $iban
      */
-    public function __construct(IbanGeneratorInterface $iban)
+    public function __construct(IbanApiInterface $iban)
     {
         $this->iban = $iban;
 

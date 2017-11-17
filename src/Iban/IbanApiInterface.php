@@ -3,13 +3,13 @@
 namespace Shapecode\Bundle\IbanBundle\Iban;
 
 /**
- * Class IbanGeneratorInterface
+ * Class IbanApiInterface
  *
  * @package Shapecode\Bundle\IbanBundle\Iban
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-interface IbanGeneratorInterface
+interface IbanApiInterface
 {
 
     /**

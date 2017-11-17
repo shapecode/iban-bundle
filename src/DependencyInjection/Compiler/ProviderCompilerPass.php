@@ -20,7 +20,7 @@ class ProviderCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $definition = $container->getDefinition('shapecode_iban.handler');
+        $definition = $container->getDefinition('shapecode_iban.provider_handler');
         $tags = $container->findTaggedServiceIds('shapecode_iban.provider');
 
         foreach ($tags as $id => $configs) {

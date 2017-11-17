@@ -3,26 +3,26 @@
 namespace Shapecode\Bundle\IbanBundle\Iban;
 
 /**
- * Class IbanGenerator
+ * Class IbanApi
  *
  * @package Shapecode\Bundle\IbanBundle\Iban
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class IbanGenerator implements IbanGeneratorInterface
+class IbanApi implements IbanApiInterface
 {
 
-    /** @var IbanHandler */
+    /** @var ProviderHandlerInterface */
     protected $handler;
 
     /** @var string */
     protected $providerName;
 
     /**
-     * @param IbanHandler $handler
-     * @param             $providerName
+     * @param ProviderHandlerInterface $handler
+     * @param                          $providerName
      */
-    public function __construct(IbanHandler $handler, $providerName)
+    public function __construct(ProviderHandlerInterface $handler, $providerName)
     {
         $this->handler = $handler;
         $this->providerName = $providerName;

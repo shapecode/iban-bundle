@@ -6,13 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Shapecode\Bundle\IbanBundle\Provider\ProviderInterface;
 
 /**
- * Class IbanHandler
+ * Class ProviderHandler
  *
  * @package Shapecode\Bundle\IbanBundle\Iban
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class IbanHandler
+class ProviderHandler implements ProviderHandlerInterface
 {
 
     /** @var ProviderInterface[] */
@@ -27,7 +27,7 @@ class IbanHandler
     }
 
     /**
-     * @return ProviderInterface[]
+     * @inheritdoc
      */
     public function getProviders()
     {
@@ -35,9 +35,7 @@ class IbanHandler
     }
 
     /**
-     * @param $name
-     *
-     * @return ProviderInterface|null
+     * @inheritdoc
      */
     public function getProvider($name)
     {
@@ -45,7 +43,7 @@ class IbanHandler
     }
 
     /**
-     * @param ProviderInterface $provider
+     * @inheritdoc
      */
     public function addProvider(ProviderInterface $provider)
     {
