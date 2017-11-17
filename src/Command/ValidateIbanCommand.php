@@ -2,7 +2,8 @@
 
 namespace Shapecode\Bundle\IbanBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Shapecode\Bundle\IbanBundle\Iban\IbanGeneratorInterface;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,8 +16,22 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class ValidateIbanCommand extends ContainerAwareCommand
+class ValidateIbanCommand extends Command
 {
+
+    /** @var IbanGeneratorInterface */
+    protected $iban;
+
+    /**
+     * @param IbanGeneratorInterface $iban
+     */
+    public function __construct(IbanGeneratorInterface $iban)
+    {
+        $this->iban = $iban;
+
+        parent::__construct();
+    }
+
     /**
      * @inheritDoc
      */
@@ -36,7 +51,7 @@ class ValidateIbanCommand extends ContainerAwareCommand
 
         $iban = $input->getArgument('iban');
 
-        $valid = $this->getContainer()->get('shapecode_iban.generator')->validateIban($iban);
+        $valid = $this->iban->validateIban($iban);
 
         $io->title('Validate IBAN: ' . $iban);
 

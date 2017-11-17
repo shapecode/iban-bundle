@@ -2,7 +2,8 @@
 
 namespace Shapecode\Bundle\IbanBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Shapecode\Bundle\IbanBundle\Iban\IbanGeneratorInterface;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,8 +16,22 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  * @author  Nikita Loges
  * @company tenolo GbR
  */
-class GenerateIbanCommand extends ContainerAwareCommand
+class GenerateIbanCommand extends Command
 {
+
+    /** @var IbanGeneratorInterface */
+    protected $iban;
+
+    /**
+     * @param IbanGeneratorInterface $iban
+     */
+    public function __construct(IbanGeneratorInterface $iban)
+    {
+        $this->iban = $iban;
+
+        parent::__construct();
+    }
+
     /**
      * @inheritDoc
      */
@@ -40,8 +55,8 @@ class GenerateIbanCommand extends ContainerAwareCommand
         $bankIdentification = $input->getArgument('bankIdentification');
         $accountNr = $input->getArgument('accountNr');
 
-        $iban = $this->getContainer()->get('shapecode_iban.generator')->generateIban($countryCode, $bankIdentification, $accountNr);
-        $bic = $this->getContainer()->get('shapecode_iban.generator')->generateBic($iban);
+        $iban = $this->iban->generateIban($countryCode, $bankIdentification, $accountNr);
+        $bic = $this->iban->generateBic($iban);
 
         $io->title('IBAN Information');
 

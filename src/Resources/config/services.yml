@@ -24,3 +24,25 @@ services:
         public: false
         tags:
             - { name: "shapecode_iban.provider" }
+
+    # commands
+    shapecode_iban.command.generate_bic:
+        class: Shapecode\Bundle\IbanBundle\Command\GenerateBicCommand
+        arguments:
+            - '@shapecode_iban.generator'
+        tags:
+            - { name: "console.command" }
+
+    shapecode_iban.command.generate_iban:
+        class: Shapecode\Bundle\IbanBundle\Command\GenerateIbanCommand
+        arguments:
+            - '@shapecode_iban.generator'
+        tags:
+            - { name: "console.command" }
+
+    shapecode_iban.command.validate_iban:
+        class: Shapecode\Bundle\IbanBundle\Command\ValidateIbanCommand
+        arguments:
+            - '@shapecode_iban.generator'
+        tags:
+            - { name: "console.command" }
