@@ -12,22 +12,6 @@ namespace Shapecode\Bundle\IbanBundle\Iban;
 class IbanApi implements IbanApiInterface
 {
 
-    /** @var ProviderHandlerInterface */
-    protected $handler;
-
-    /** @var string */
-    protected $providerName;
-
-    /**
-     * @param ProviderHandlerInterface $handler
-     * @param                          $providerName
-     */
-    public function __construct(ProviderHandlerInterface $handler, $providerName)
-    {
-        $this->handler = $handler;
-        $this->providerName = $providerName;
-    }
-
     /**
      * @inheritdoc
      */
@@ -42,29 +26,5 @@ class IbanApi implements IbanApiInterface
     public function validateIban($iban)
     {
         return $this->getProvider()->validateIban($iban);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function generateBic($iban)
-    {
-        return $this->getProvider()->getBicFromIban($iban);
-    }
-
-    /**
-     * @return null|\Shapecode\Bundle\IbanBundle\Provider\ProviderInterface
-     */
-    public function getProvider()
-    {
-        return $this->handler->getProvider($this->providerName);
-    }
-
-    /**
-     * @param string $providerName
-     */
-    public function setProviderName($providerName)
-    {
-        $this->providerName = $providerName;
     }
 }

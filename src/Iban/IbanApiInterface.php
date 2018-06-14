@@ -31,13 +31,4 @@ interface IbanApiInterface
      * @return boolean
      */
     public function validateIban($iban);
-
-    /**
-     * Generates BIC from IBAN
-     *
-     * @param $iban
-     *
-     * @return string
-     */
-    public function generateBic($iban);
 }

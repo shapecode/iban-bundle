@@ -1,38 +1,11 @@
 services:
 
     # services
-    shapecode_iban.provider_handler:
-        class: Shapecode\Bundle\IbanBundle\Iban\ProviderHandler
-        public: false
-
     shapecode_iban.api:
         class: Shapecode\Bundle\IbanBundle\Iban\IbanApi
         public: true
-        arguments:
-            - "@shapecode_iban.provider_handler"
-            - "%shapecode_iban.provider_name%"
-
-    # provider
-    shapecode_iban.api.iban_api_de:
-        class: Shapecode\Bundle\IbanBundle\Provider\IbanApiDeProvider
-        public: false
-        tags:
-            - { name: "shapecode_iban.provider" }
-
-    shapecode_iban.api.open_iban:
-        class: Shapecode\Bundle\IbanBundle\Provider\OpenIbanProvider
-        public: false
-        tags:
-            - { name: "shapecode_iban.provider" }
 
     # commands
-    shapecode_iban.command.generate_bic:
-        class: Shapecode\Bundle\IbanBundle\Command\GenerateBicCommand
-        arguments:
-            - '@shapecode_iban.api'
-        tags:
-            - { name: "console.command" }
-
     shapecode_iban.command.generate_iban:
         class: Shapecode\Bundle\IbanBundle\Command\GenerateIbanCommand
         arguments:

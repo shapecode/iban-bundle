@@ -23,11 +23,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('shapecode_iban');
 
-        $rootNode
-            ->children()
-                ->scalarNode('provider')->defaultValue('open_iban')->end()
-            ->end();
-
         return $treeBuilder;
     }
 }
